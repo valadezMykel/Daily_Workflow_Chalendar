@@ -7,6 +7,7 @@ today.text(moment());
 
 // when the page loads it updates the css classes on the inputs based on the current hour
 $("input").each(function(){
+    // spanish for time
     let elTime = $(this).data("time");
     let savedText = localStorage.getItem(elTime);
     if(elTime == currentHour){
@@ -23,6 +24,7 @@ $("input").each(function(){
     };
 });
 
+// listens for button clicks and saves text values to local storage
 $(".row").on("click", function(event){
     if(event.target.matches("button")){
         let submitTextDiv = event.target.parentElement.children[1];
