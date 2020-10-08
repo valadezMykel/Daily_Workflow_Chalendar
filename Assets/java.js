@@ -1,9 +1,7 @@
-console.log($("#currentDay"))
 
-let today = $("#currentDay");
 let currentHour = moment().format("H");
 
-today.text(moment());
+$("#currentDay").text(moment());
 
 // when the page loads it updates the css classes on the inputs based on the current hour
 $("input").each(function(){
