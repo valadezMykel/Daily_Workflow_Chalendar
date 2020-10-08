@@ -1,7 +1,8 @@
 
 let currentHour = moment().format("H");
-let dayKey = moment("L");
+let dayKey = moment().format("L");
 
+console.log(dayKey);
 $("#currentDay").text(moment());
 
 // when the page loads it updates the css classes on the inputs based on the current hour
