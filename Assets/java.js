@@ -1,13 +1,15 @@
 
 let currentHour = moment().format("H");
+let dayKey = moment("L");
 
 $("#currentDay").text(moment());
 
 // when the page loads it updates the css classes on the inputs based on the current hour
 $("input").each(function(){
-    // spanish for time
+    // text retrieval is also based on the day it was made so each day has new blank text
     let elTime = $(this).data("time");
-    let savedText = localStorage.getItem(elTime);
+    let theKey = dayKey+" "+elTime;
+    let savedText = localStorage.getItem(theKey);
     if(elTime == currentHour){
         $(this).addClass("present");
         $(this).val(savedText);
@@ -27,6 +29,7 @@ $(".row").on("click", function(event){
     if(event.target.matches("button")){
         let submitTextDiv = event.target.parentElement.children[1];
         let timeKey = submitTextDiv.getAttribute("data-time");
-        localStorage.setItem(timeKey, submitTextDiv.value)
+        let theKey = dayKey+" "+timeKey;
+        localStorage.setItem(theKey, submitTextDiv.value)
     }
 })
